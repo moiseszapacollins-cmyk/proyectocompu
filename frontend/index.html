@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>computadoras</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <button id="btn-oscuro" class="btn-toggle-dark"> Modo Oscuro</button>
+
+    <div class="contenedor-principal">
+        <header>
+            <h1>Comparacion de computadoras</h1>
+            <p>Encuentra una computadora que se adapte a tus necesidades.</p>
+        </header>
+
+        <div class="contenido">
+            <div class="columna-izquierda" style="display: flex; flex-direction: column; gap: 20px;">
+                
+                <section class="formulario-seccion">
+                    <h2>Cuéntanos qué necesitas</h2>
+                    <form id="formulario">
+                        <div class="campo">
+                            <label for="presupuesto">Presupuesto</label>
+                            <input type="number" id="presupuesto" placeholder="Ej. 25,000" required min="1">
+                        </div>
+
+                        <div class="campo">
+                            <label for="perfil">¿Para qué la utilizarás?</label>
+                            <select id="perfil">
+                                <option value="cualquiera">Cualquiera</option>
+                                <option value="oficina">Oficina / Tareas Básicas</option>
+                                <option value="programacion">Programación / Desarrollo</option>
+                                <option value="diseno">Diseño Gráfico / Edición</option>
+                                <option value="gaming">Videojuegos / Gaming</option>
+                            </select>
+                        </div>
+
+                        <div class="campo">
+                            <label for="tipo">Tipo de computadora</label>
+                            <select id="tipo">
+                                <option value="cualquiera">Cualquiera</option>
+                                <option value="laptop">Laptop</option>
+                                <option value="escritorio">Escritorio</option>
+                            </select>
+                        </div>
+
+                        <div class="campo">
+                            <label for="marca-procesador">Marca del Procesador</label>
+                            <select id="marca-procesador">
+                                <option value="cualquiera">Cualquiera (Intel / AMD / Apple)</option>
+                                <option value="intel">Intel</option>
+                                <option value="amd">AMD</option>
+                                <option value="apple">Apple Silicon (M1/M2/M3)</option>
+                            </select>
+                        </div>
+                        <div class="campo">
+                            <label for="ram">Memoria RAM mínima</label>
+                            <select id="ram">
+                                <option value="0">Cualquiera</option>
+                                <option value="8">8 GB</option>
+                                <option value="16">16 GB</option>
+                                <option value="32">32 GB</option>
+                                <option value="64">64 GB</option>
+                            </select>
+                        </div>
+
+                        <div class="campo">
+                            <label for="almacenamiento">Almacenamiento mínimo</label>
+                            <select id="almacenamiento">
+                                <option value="0">Cualquiera</option>
+                                <option value="240">240 GB</option>
+                                <option value="480">480 GB</option>
+                                <option value="512">512 GB</option>
+                                <option value="1024">1 TB (1024 GB)</option>
+                                <option value="2048">2 TB (2048 GB)</option>
+                            </select>
+                        </div>
+
+
+                        <div class="campo">
+                            <label for="ordenar-precio">Ordenar resultados</label>
+                            <select id="ordenar-precio">
+                                <option value="menor-mayor">Precio: Menor a Mayor</option>
+                                <option value="mayor-menor">Precio: Mayor a Menor</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="btn-buscar">Buscar recomendaciones</button>
+                    </form>
+                </section>
+
+                <section class="formulario-seccion contenedor-desplegable">
+                    <div id="btn-desplegar-registro" style="display: flex; justify-content: space-between; align-items: center; cursor: pointer; user-select: none;">
+                        <h2 style="margin: 0;"> Registrar Nuevo Equipo</h2>
+                        <span id="icono-flecha" style="font-size: 1.5rem; transition: transform 0.3s;">X</span>
+                    </div>
+                    
+                    <div id="cuerpo-desplegable" style="max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out; margin-top: 0;">
+                        <form id="formulario-agregar" style="margin-top: 20px;">
+                            <div class="campo">
+                                <label>Marca</label>
+                                <input type="text" id="add-marca" required placeholder="Ej: Asus, Dell">
+                            </div>
+                            <div class="campo">
+                                <label>Modelo</label>
+                                <input type="text" id="add-modelo" required placeholder="Ej: Zenbook 14">
+                            </div>
+                            <div class="campo">
+                                <label>Precio (MXN)</label>
+                                <input type="number" id="add-precio" required min="1">
+                            </div>
+                            <div class="campo">
+                                <label>Tipo</label>
+                                <select id="add-tipo">
+                                    <option value="laptop">Laptop</option>
+                                    <option value="escritorio">Escritorio</option>
+                                </select>
+                            </div>
+
+                            <div class="campo">
+                                <label for="add-perfil">¿Para qué la utilizarás? (Uso recomendado)</label>
+                                <select id="add-perfil">
+                                    <option value="oficina">Oficina / Tareas Básicas</option>
+                                    <option value="programacion">Programación / Desarrollo</option>
+                                    <option value="diseno">Diseño Gráfico / Edición</option>
+                                    <option value="gaming">Videojuegos / Gaming</option>
+                                </select>
+                            </div>
+                            <div class="campo">
+                                <label>Procesador (CPU)</label>
+                                <input type="text" id="add-cpu" required placeholder="Ej: Intel Core i7-13700H">
+                            </div>
+                            <div class="campo">
+                                <label>Memoria RAM (GB)</label>
+                                <input type="number" id="add-ram" required min="1" placeholder="Ej: 16">
+                            </div>
+                            <div class="campo">
+                                <label>Capacidad Almacenamiento (GB)</label>
+                                <input type="number" id="add-disco" required min="1" placeholder="Ej: 512">
+                            </div>
+                            <div class="campo">
+                                <label>Tipo de Disco</label>
+                                <select id="add-tipo-disco">
+                                    <option value="ssd">SSD</option>
+                                    <option value="hdd">HDD</option>
+                                </select>
+                            </div>
+                            <div class="campo">
+                                <label>Tarjeta Gráfica (GPU)</label>
+                                <input type="text" id="add-gpu" required placeholder="Ej: NVIDIA RTX 4050">
+                            </div>
+                            <div class="campo">
+                                <label>URL de la Imagen</label>
+                                <input type="url" id="add-imagen" required placeholder="https://ejemplo.com">
+                            </div>
+                            <div class="campo">
+                                <label>Enlace de la Tienda</label>
+                                <input type="url" id="add-tienda" required placeholder="https://tienda.com">
+                            </div>
+                            <button type="submit" class="btn-buscar" style="background-color: #10b981;">Guardar en Catálogo</button>
+                        </form>
+                    </div>
+                </section>
+            </div> 
+
+            <section class="resultados-seccion" id="resultado-contenedor">
+                <h2>Resultados</h2>
+                <button id="btn-comparar" class="flotante-comparar" style="display: none; margin-bottom: 15px;">
+                 Comparar Seleccionados (<span id="cuenta-comparar">0</span>)
+                </button>
+                <div id="resultado">
+                    <p>Llena el formulario</p>
+                </div>
+            </section>
+        </div> 
+    </div> 
+
+    <div id="modal-comparacion" class="modal">
+        <div class="modal-contenido">
+            <span class="cerrar-modal">&times;</span>
+            <h2>Comparativa de Equipos</h2>
+            <div id="tabla-comparativa-contenedor"></div>
+        </div>
+    </div>
+
+
+    <script src="app.js"></script>
+</body>
+</html>
